@@ -1,0 +1,18 @@
+{
+    "items": [
+        {
+            "NAME": "proyectos",
+            "TEXT": "proyectos",
+            "URL": "taskman/gt_proyectos/master",
+            "ICON": "business",
+            "COLOR": "rgb(200, 20, 25)"
+        },
+        {
+            "NAME": "sprint",
+            "TEXT": "sprint",
+            "URL": "taskman/gt_comentarios/custom/tareas",
+            "ICON": "today",
+            "COLOR": "rgb(200, 20, 25)"
+        }
+    ]
+}

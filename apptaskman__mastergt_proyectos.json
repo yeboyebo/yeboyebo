@@ -1,0 +1,54 @@
+{
+    "querystring": {
+        "p_l": 10,
+        "p_c": true,
+        "o_1": "-codproyecto",
+        "o_2": "-fechainicio",
+        "s_mantenimiento__ne": true,
+        "f_proyectosgrupo": null
+    },
+    "schema": {},
+    "layout": {
+        "masterGrid": {
+            "componente": "YBList",
+            "class": "claseGrid",
+            "label": "Proyectos",
+            "prefix": "gt_proyectos",
+            "filter": "buscador",
+            "colorRowField": "rowColor",
+            "columns": [
+                {"tipo": "field", "listpos": "title", "key": "codproyecto"},
+                {"tipo": "field", "key": "fechainicio"},
+                {"tipo": "field", "listpos": "subtitle", "key": "descripcion"},
+                {"tipo": "foreignfield", "listpos": "body", "key": "refcliente", "avatar": true},
+                {
+                    "tipo": "act",
+                    "key": "cambiarEstado",
+                    "label": "Cambiar Estado",
+                    "success": [{"slot": "refrescar"}]
+                }
+            ],
+            "rowclick": "",
+            "accionesGrid": [
+                {
+                    "key": "visibility",
+                    "label": "Ver todo",
+                    "success": [{"slot": "refrescar"}]
+                }
+            ]
+        }
+    },
+    "acciones": {
+        "visibility": {
+            "label" : "",
+            "action": "gridAction",
+            "serverAction": "visibility",
+            "icon": "visibility"
+        },
+        "cambiarEstado": {
+            "action": "legacy",
+            "serverAction": "cambiarEstado",
+            "icon": "cached"
+        }
+    }
+}

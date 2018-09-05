@@ -1,0 +1,24 @@
+{
+    "querystring": {},
+    "schema": {},
+    "layout": {
+        "proyectosForm": {
+            "prefix": "gt_proyectos",
+            "componente": "YBForm",
+            "class": "claseGrid",
+            "submit": "create",
+            "success": [{"slot": "redirect"}],
+            "fields": {
+                "gb__": {
+                    "fields": {
+                        "codproyecto": {"disabled": false},
+                        "descripcion": {},
+                        "refcliente": {},
+                        "codcliente": {}
+                    }
+                }
+            },
+            "exclude": {}
+        }
+    }
+}

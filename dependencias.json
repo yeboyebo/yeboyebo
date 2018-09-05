@@ -3,8 +3,20 @@
     "dependencias": [
         {
             "version": "v1.0",
-            "key": "baseparche"
+            "key": "celery"
+        },
+        {
+            "version": "v1.0",
+            "key": "daphne"
+        },
+        {
+            "version": "v1.0",
+            "key": "ssl"
+        },
+        {
+            "version": "v1.0",
+            "key": "gesttare"
         }
     ],
-    "fun_aq": null
+    "fun_aq": "fun_oficial"
 }

@@ -1,0 +1,257 @@
+{
+    "querystring": {
+        "p_l": 1,
+        "p_c": true
+    },
+    "schema": {
+        "mastertareas": {
+            "query": {
+                "o_1": "gt_proyectos.refcliente",
+                "o_2": "gt_comentarios.idcomentario"
+            }
+        }
+    },
+    "title": "Sprint",
+    "layout": {
+        "groupBoxAcciones": {
+            "componente": "YBGroupBox",
+            "className": "class",
+            "style": {
+                "position": "relative",
+                "float": "left",
+                "width": "20%"
+            },
+            "layout": {
+                "labelTotalHoras": {
+                    "componente": "YBLabel",
+                    "text": "Total Horas: %yb1",
+                    "style": {
+                        "fontSize": "14px",
+                        "fontWeight": "bold",
+                        "width": "100%",
+                        "textAlign": "left"
+                    },
+                    "params": [
+                        {"type": "calc", "key": "totalHoras"}
+                    ]
+                },
+                "filterFields": {
+                    "componente": "YBGroupBox",
+                    "className": "class",
+                    "layout": {
+                        "field_comentarioFecha": {
+                            "componente": "YBFieldDB",
+                            "prefix": "otros",
+                            "className": "fullField",
+                            "key": "gt_comentarios.fecha",
+                            "label": "Fecha",
+                            "tipo": 26
+                        },
+                        "field_usuario": {
+                            "componente": "YBFieldDB",
+                            "prefix": "otros",
+                            "tipo": 55,
+                            "className": "fullField",
+                            "auto_name": "Usuario",
+                            "rel": "gt_usuarios",
+                            "aplic": "facturacion",
+                            "key": "iduser",
+                            "desc": "iduser"
+                        },
+                        "filtraTareasButton": {
+                            "componente": "YBButton",
+                            "prefix": "gt_comentarios",
+                            "label": "Filtrar",
+                            "className": "fullField",
+                            "buttonType": "raised",
+                            "style": {
+                                "marginTop": "30px"
+                            },
+                            "action": {
+                                "key": "filtraTareas",
+                                "success": [
+                                    {
+                                        "slot": "onfilter",
+                                        "prefix": "mastertareas",
+                                        "type": "query",
+                                        "filter": {
+                                            "gt_comentarios.fecha": "gt_comentarios.fecha",
+                                            "gt_usuarios.iduser": "iduser"
+                                        }
+                                    }
+                                ],
+                                "error": [{"slot": "toast", "mensaje": "Error inesperado, consulte administrador"}]
+                            }
+                        }
+                    }
+
+                },
+                "groupBoxNuevaTarea": {
+                    "componente": "YBGroupBox",
+                    "className": "class",
+                    "layout": {
+                        "nuevaTareaButton": {
+                            "componente": "YBButton",
+                            "prefix": "gt_comentarios",
+                            "label": "Nueva Tarea",
+                            "className": "fullField",
+                            "buttonType": "raised",
+                            "style": {
+                                "marginTop": "30px"
+                            },
+                            "action": {
+                                "key": "nuevaTarea",
+                                "prefix": "gt_comentarios",
+                                "success": [
+                                    {"slot": "refrescar", "custom": "tareas"}
+                                ],
+                                "error": [{"slot": "toast", "mensaje": "Error inesperado, consulte administrador"}]
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "groupBoxMasterTareas": {
+            "componente": "YBGroupBox",
+            "className": "class",
+            "style": {
+                "position": "relative",
+                "float": "left",
+                "width": "80%"
+            },
+            "layout": {
+                "queryGrid_mastertareas": {
+                    "componente": "YBList",
+                    "label": "",
+                    "prefix": "mastertareas",
+                    "filter": "buscador",
+                    "colorRowField": "rowColor",
+                    "multiselectable": true,
+                    "type": "query",
+                    "columns": [
+                        {"tipo": "foreignfield", "listpos": "subtitle", "key": "comboTarea", "label": "Proyecto", "width": 100},
+                        {"tipo": "field", "key": "gt_tareas.descripcion", "label": "Descripción", "width": 100},
+                        {"tipo": "field", "listpos": "body", "key": "gt_proyectos.refcliente", "label": "Descripción", "width": 100, "avatar": true},
+                        {"tipo": "field", "listpos": "body", "key": "gt_comentarios.comentario", "label": "Comentario", "width": 100},
+                        {"tipo": "foreignfield", "listpos": "secondaryitem", "key": "horasDedicadas", "label": "Horas", "editable": true},
+                        {
+                            "tipo": "act",
+                            "key": "startstop",
+                            "label": "Contador",
+                            "success": [{"slot": "refrescar", "custom": "tareas"}]
+                        },
+                        {
+                            "tipo": "act",
+                            "key": "copiarTareaHoy",
+                            "success": [{"slot": "recargar", "custom": "tareas"}]
+                        },
+                        {
+                            "tipo": "act",
+                            "key": "editarHoras",
+                            "label": "Editar",
+                            "success": [{"slot": "refrescar", "custom": "tareas"}]
+                        }
+                    ],
+                    "rowclick": "",
+                    "accionesGrid": [
+                        {
+                            "key": "copiarTareas",
+                            "label": "Copiar Tareas",
+                            "success": [{"receiver": "tareas", "slot": "recargar"}]
+                        },
+                        {
+                            "key": "eliminarTarea",
+                            "label": "Eliminar Tarea",
+                            "success": [{"receiver": "tareas", "slot": "recargar"}]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "acciones": {
+        "eliminarTarea": {
+            "label" : "",
+            "action": "gridAction",
+            "serverAction": "eliminarTarea",
+            "icon": "delete_forever"
+        },
+        "nuevaTarea": {
+            "action": "legacy",
+            "serverAction": "nuevaTarea",
+            "prefix": "gt_comentarios",
+            "params": [
+                {
+                    "tipo": 6,
+                    "verbose_name": "Tarea",
+                    "key": "ntarea",
+                    "validaciones": null,
+                    "required": true
+                },
+                {
+                    "tipo": 26,
+                    "verbose_name": "gt_comentarios.fecha",
+                    "key": "gt_comentarios.fecha",
+                    "validaciones": null
+                }
+            ]
+        },
+        "filtraTareas": {
+            "action": "clientBufferChanged",
+            "name": "recuentoHoras"
+        },
+        "startstop": {
+            "action": "legacy",
+            "prefix": "gt_comentarios",
+            "serverAction": "startstop",
+            "icon": "alarm"
+        },
+        "copiarTareaHoy": {
+            "action": "legacy",
+            "prefix": "gt_comentarios",
+            "serverAction": "copiarTareaHoy",
+            "icon": "alarm_add"
+        },
+        "copiarTareas": {
+            "label" : "",
+            "action": "gridAction",
+            "serverAction": "copiarTareas",
+            "icon": "alarm_add"
+        },
+        "editarHoras": {
+            "action": "legacy",
+            "prefix": "gt_comentarios",
+            "serverAction": "editarHoras",
+            "icon": "create",
+            "params": [
+                {
+                    "tipo": 3,
+                    "verbose_name": "Horas dedicadas",
+                    "key": "hdedicadas",
+                    "validaciones": null
+                },
+                {
+                    "tipo": 3,
+                    "verbose_name": "Horas dedicadas",
+                    "key": "gt_comentarios.fecha",
+                    "validaciones": null
+                },
+                {
+                    "tipo": 6,
+                    "verbose_name": "Comentario",
+                    "key": "comentario",
+                    "validaciones": null
+                }
+            ]
+        }
+    },
+    "drawIf": {
+        "queryGrid_mastertareas": {
+            "copiarTareaHoy": {
+                "tipo": "hidden"
+            }
+        }
+    }
+}

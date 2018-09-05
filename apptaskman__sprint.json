@@ -1,0 +1,110 @@
+{
+    "querystring": {
+        "p_l": 1,
+        "p_c": true
+    },
+    "schema": {
+        "mistareas": {
+            "query": {}
+        }
+    },
+    "layout": {
+        "labelTotalHoras": {
+            "componente": "YBLabel",
+            "text": "Total Horas: %yb1",
+            "style": {
+                "fontSize": "12px",
+                "width": "100%",
+                "textAlign": "right"
+            },
+            "params": [
+                {"type": "calc", "key": "totalHoras"}
+            ]
+        },
+        "layoutFields": {
+            "componente": "YBGroupBox",
+            "className": "class",
+            "layout": {
+                "field_nuevaTarea": {
+                    "componente": "YBFieldDB",
+                    "prefix": "otros",
+                    "className": " fielddb",
+                    "key": "ntarea",
+                    "key": "ntarea",
+                    "label": "Nueva Tarea",
+                    "tipo": 3,
+                    "actions": [{
+                        "signal": "enterPressed",
+                        "key": "nuevaTarea",
+                        "success": [
+                            {"slot": "refrescar", "custom": "sprint"}
+                        ]
+                    }]
+                }
+            }
+
+        },
+        "queryGrid_mistareas": {
+            "componente": "YBList",
+            "label": "",
+            "prefix": "mistareas",
+            "filter": "buscador",
+            "colorRowField": "rowColor",
+            "type": "query",
+            "columns": [
+                {"tipo": "foreignfield", "listpos": "subtitle", "key": "comboTarea", "label": "Proyecto", "width": 100},
+                {"tipo": "field", "key": "gt_tareas.descripcion", "label": "Descripción", "width": 100},
+                {"tipo": "field", "listpos": "body", "key": "gt_proyectos.refcliente", "label": "Descripción", "width": 100, "avatar": true},
+                {"tipo": "foreignfield", "listpos": "body", "key": "horaInicio", "label": "Hora Inicio", "width": 100},
+                {"tipo": "foreignfield", "listpos": "secondaryitem", "key": "horasDedicadas", "label": "Horas", "editable": true},
+                {
+                    "tipo": "act",
+                    "key": "startstop",
+                    "label": "Contador",
+                    "success": [{"slot": "refrescar", "custom": "sprint"}]
+                },
+                {
+                    "tipo": "act",
+                    "key": "editarHoras",
+                    "label": "Editar",
+                    "success": [{"slot": "refrescar", "custom": "sprint"}]
+                }
+            ],
+            "rowclick": ""
+        }
+    },
+    "acciones": {
+        "nuevaTarea": {
+            "action": "legacy",
+            "serverAction": "nuevaTarea",
+            "params": [
+                {
+                    "tipo": 3,
+                    "verbose_name": "ntarea",
+                    "key": "ntarea",
+                    "validaciones": null
+                }
+            ]
+        },
+        "startstop": {
+            "action": "legacy",
+            "prefix": "gt_comentarios",
+            "serverAction": "startstop",
+            "icon": "alarm_add"
+        },
+        "editarHoras": {
+            "action": "legacy",
+            "prefix": "gt_comentarios",
+            "serverAction": "editarHoras",
+            "icon": "create",
+            "params": [
+                {
+                    "tipo": 3,
+                    "verbose_name": "Horas dedicadas",
+                    "key": "hdedicadas",
+                    "validaciones": null
+                }
+            ]
+        }
+    }
+}

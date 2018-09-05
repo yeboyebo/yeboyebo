@@ -1,7 +1,48 @@
 {
     "name": "yeboyebo",
     "modifications": {
-        "addFile": [],
+        "addFile": [
+            {
+                "name": "__init__.py",
+                "path": "apps/taskman/"
+            },
+            {
+                "name": "tasks.py",
+                "path": "apps/taskman/"
+            },
+            {
+                "name": "menu_taskman.json",
+                "path": "apps/taskman/templates/taskman/"
+            },
+            {
+                "name": "apptaskman__test.json",
+                "path": "apps/taskman/templates/taskman/plantillas/"
+            },
+            {
+                "name": "apptaskman__mastergt_proyectos.json",
+                "path": "apps/taskman/templates/taskman/plantillas/"
+            },
+            {
+                "name": "apptaskman__sprint.json",
+                "path": "apps/taskman/templates/taskman/plantillas/"
+            },
+            {
+                "name": "apptaskman__newrecordgt_proyectos.json",
+                "path": "apps/taskman/templates/taskman/plantillas/"
+            },
+            {
+                "name": "apptaskman__tareas.json",
+                "path": "apps/taskman/templates/taskman/plantillas/"
+            },
+            {
+                "name": "views_taskman.py",
+                "path": "apps/taskman/viewset/"
+            },
+            {
+                "name": "consumers.py",
+                "path": "apps/portal/"
+            }
+        ],
         "patchScript": [],
         "patchJson": [
             {
@@ -17,6 +58,10 @@
             {
                 "name": "dependencias.json",
                 "path": "config/"
+            },
+            {
+                "name": "settings.py",
+                "path": "AQNEXT/"
             }
         ],
         "deleteFile": []
