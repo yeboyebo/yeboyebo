@@ -1,0 +1,24 @@
+{
+    "name": "yeboyebo",
+    "modifications": {
+        "addFile": [],
+        "patchScript": [],
+        "patchJson": [
+            {
+                "name": "urls.json",
+                "path": "config/"
+            },
+            {
+                "name": "registros.json",
+                "path": "config/"
+            }
+        ],
+        "replaceFile": [
+            {
+                "name": "dependencias.json",
+                "path": "config/"
+            }
+        ],
+        "deleteFile": []
+    }
+}
