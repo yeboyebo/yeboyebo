@@ -1,5 +1,5 @@
 {
-    "fk": true,
+    "fk": "True",
     "dependencias": [
         {
             "version": "v1.0",
