@@ -3,44 +3,48 @@
     "modifications": {
         "addFile": [
             {
-                "name": "__init__.py",
+                "name": "app_taskman____init__.py",
                 "path": "apps/taskman/"
             },
             {
-                "name": "tasks.py",
+                "name": "app_taskman__tasks.py",
                 "path": "apps/taskman/"
             },
             {
-                "name": "menu_taskman.json",
+                "name": "app_taskman__menu_taskman.json",
                 "path": "apps/taskman/templates/taskman/"
             },
             {
-                "name": "apptaskman__test.json",
+                "name": "app_taskman__test.json",
                 "path": "apps/taskman/templates/taskman/plantillas/"
             },
             {
-                "name": "apptaskman__mastergt_proyectos.json",
+                "name": "app_taskman__mastergt_proyectos.json",
                 "path": "apps/taskman/templates/taskman/plantillas/"
             },
             {
-                "name": "apptaskman__sprint.json",
+                "name": "app_taskman__sprint.json",
                 "path": "apps/taskman/templates/taskman/plantillas/"
             },
             {
-                "name": "apptaskman__newrecordgt_proyectos.json",
+                "name": "app_taskman__newrecordgt_proyectos.json",
                 "path": "apps/taskman/templates/taskman/plantillas/"
             },
             {
-                "name": "apptaskman__tareas.json",
+                "name": "app_taskman__tareas.json",
                 "path": "apps/taskman/templates/taskman/plantillas/"
             },
             {
-                "name": "views_taskman.py",
+                "name": "app_taskman__views_taskman.py",
                 "path": "apps/taskman/viewset/"
             },
             {
-                "name": "consumers.py",
+                "name": "app_portal__consumers.py",
                 "path": "apps/portal/"
+            },
+            {
+                "name": "model_flsisppal__models.py",
+                "path": "models/flsisppal/"
             }
         ],
         "patchScript": [],

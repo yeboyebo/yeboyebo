@@ -2,8 +2,8 @@ from channels import Channel, Group
 from channels.sessions import channel_session
 from channels.auth import channel_session_user, channel_session_user_from_http
 from channels.security.websockets import allowed_hosts_only
-from YBSYSTEM.models.flsisppal.models import mtd_chatmessages as ChatMessage
-from YBSYSTEM.models.flsisppal.models import mtd_chatstatus as chatStatus
+from models.flsisppal.models import mtd_chatmessages as ChatMessage
+from models.flsisppal.models import mtd_chatstatus as chatStatus
 from datetime import datetime
 import json
 # from channels.asgi import get_channel_layer
