@@ -154,7 +154,7 @@
                             "success": [{"slot": "refrescar", "custom": "tareas"}]
                         }
                     ],
-                    "rowclick": "",
+                    "rowclick": "dameTemplateTarea",
                     "accionesGrid": [
                         {
                             "key": "copiarTareas",
@@ -172,6 +172,11 @@
         }
     },
     "acciones": {
+        "dameTemplateTarea": {
+            "action": "goto",
+            "prefix": "gt_comentarios",
+            "serverAction": "dameTemplateTarea"
+        },
         "eliminarTarea": {
             "label" : "",
             "action": "gridAction",

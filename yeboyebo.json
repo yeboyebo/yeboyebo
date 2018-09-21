@@ -45,9 +45,34 @@
             {
                 "name": "model_flsisppal__models.py",
                 "path": "models/flsisppal/"
+            },
+            {
+                "name": "model_models__clientBch.py",
+                "path": "models/models/"
             }
         ],
-        "patchScript": [],
+        "patchScript": [
+            {
+                "name": "model_flgesttare__flgesttare_def.py",
+                "path": "models/flgesttare/"
+            },
+            {
+                "name": "model_flgesttare__gt_proyectos_def.py",
+                "path": "models/flgesttare/"
+            },
+            {
+                "name": "model_flgesttare__gt_comentarios_def.py",
+                "path": "models/flgesttare/"
+            },
+            {
+                "name": "model_flgesttare__gt_comentarios.py",
+                "path": "models/flgesttare/"
+            },
+            {
+                "name": "model_flgesttare__gt_proyectos.py",
+                "path": "models/flgesttare/"
+            }
+        ],
         "patchJson": [
             {
                 "name": "urls.json",
@@ -56,6 +81,10 @@
             {
                 "name": "registros.json",
                 "path": "config/"
+            },
+            {
+                "name": "app_portal__menu_portal.json",
+                "path": "apps/portal/templates/portal/"
             }
         ],
         "replaceFile": [

@@ -1,0 +1,14 @@
+{
+    "modifications": [
+        {
+            "type": "insertAfterItem",
+            "path": "/items[gesttare]",
+            "value": {
+                "NAME": "taskman",
+                "TEXT": "TASKMAN",
+                "ICON": "local_hospital",
+                "COLOR": "rgb(30, 30, 215)"
+            }
+        }
+    ]
+}
