@@ -56,6 +56,7 @@ class yeboyebo(gesttare):
 
     def yeboyebo_getForeignFields(self, model, template=None):
         fields = []
+        fields = fields + super(yeboyebo, self.iface).getForeignFields(model, template)
         if template == 'mistareas' or template == 'mastertareas':
             return [
                 {'verbose_name': 'rowColor', 'func': 'field_colorRow'},
