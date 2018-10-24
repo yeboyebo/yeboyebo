@@ -197,6 +197,7 @@ class yeboyebo(gesttare):
         curTarea = qsatype.FLSqlCursor(u"gt_tareas")
         curTarea.setModeAccess(curTarea.Insert)
         curTarea.refreshBuffer()
+        curTarea.setValueBuffer("nombre", descripcion)
         curTarea.setValueBuffer("descripcion", descripcion)
         curTarea.setValueBuffer("codproyecto", codproyecto)
         curTarea.setValueBuffer("codestado", "Abierta")
