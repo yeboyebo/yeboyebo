@@ -1,6 +1,4 @@
 
-/** @delete_class gesttare */
-
 # @class_declaration yeboyebo #
 from YBLEGACY.constantes import *
 from YBUTILS.viewREST import cacheController
@@ -42,10 +40,6 @@ class yeboyebo(gesttare):
                 {'verbose_name': 'rowColor', 'func': 'field_colorRow'}
             ]
         return fields
-
-    def yeboyebo_getDesc(self):
-        desc = None
-        return desc
 
     def yeboyebo_field_colorRow(self, model):
         if model.estado == "Terminado":
@@ -92,9 +86,6 @@ class yeboyebo(gesttare):
 
     def getForeignFields(self, model, template=None):
         return self.ctx.yeboyebo_getForeignFields(model, template)
-
-    def getDesc(self):
-        return self.ctx.yeboyebo_getDesc()
 
     def field_colorRow(self, model):
         return self.ctx.yeboyebo_field_colorRow(model)

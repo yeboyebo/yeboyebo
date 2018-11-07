@@ -1,6 +1,4 @@
 
-/** @delete_class gesttare_gt_proyectos */
-
 # @class_declaration yeboyebo_gt_proyectos #
 class yeboyebo_gt_proyectos(gesttare_gt_proyectos, helpers.MixinConAcciones):
     pass
@@ -22,9 +20,6 @@ class yeboyebo_gt_proyectos(gesttare_gt_proyectos, helpers.MixinConAcciones):
 
     def getForeignFields(self, template=None):
         return form.iface.getForeignFields(self, template)
-
-    def getDesc():
-        return form.iface.getDesc()
 
     def field_colorRow(self):
         return form.iface.field_colorRow(self)
