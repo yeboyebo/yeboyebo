@@ -241,7 +241,7 @@ class yeboyebo(gesttare):
 
     def yeboyebo_startstop(self, model, cursor):
         # print(cursor.valueBuffer("idcomentario"))
-        comentarioactivo = qsatype.FLUtil.sqlSelect(u"gt_comentarios", u"idcomentario", ustr(u"idusuario = '", self.iface.getIdusuario(), "' AND hinicio is not null"))
+        comentarioactivo = qsatype.FLUtil.sqlSelect(u"gt_comentarios", u"idcomentario", ustr(u"idusuario = '", self.iface.getIdusuario(), "' AND hinicio is not null  and hinicio <> 0"))
         # print(comentarioactivo)
         # if(not comentarioactivo or cursor.valueBuffer("idcomentario") == comentarioactivo):
         if not comentarioactivo and not cursor.valueBuffer('hinicio'):
