@@ -37,7 +37,7 @@ class yeboyebo(gesttare):
         return time
 
     def __init__(self, context=None):
-        super(yeboyebo, self).__init__(context)
+        super().__init__(context)
 
     def obtenerHashtag(self, hashtag):
         return self.ctx.yeboyebo_obtenerHashtag(hashtag)

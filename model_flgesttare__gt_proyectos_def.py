@@ -6,18 +6,6 @@ from YBUTILS.viewREST import cacheController
 
 class yeboyebo(gesttare):
 
-    def yeboyebo_initValidation(self, name, data=None):
-        response = True
-        return response
-
-    def yeboyebo_iniciaValoresLabel(self, model=None, template=None, cursor=None):
-        labels = {}
-        return labels
-
-    def yeboyebo_bChLabel(self, fN=None, cursor=None):
-        labels = {}
-        return labels
-
     def yeboyebo_getFilters(self, model, name, template=None):
         filters = []
         if name == 'proyectosgrupo':
@@ -70,16 +58,7 @@ class yeboyebo(gesttare):
         return True
 
     def __init__(self, context=None):
-        super(yeboyebo, self).__init__(context)
-
-    def initValidation(self, name, data=None):
-        return self.ctx.yeboyebo_initValidation(name, data=None)
-
-    def iniciaValoresLabel(self, model=None, template=None, cursor=None):
-        return self.ctx.yeboyebo_iniciaValoresLabel(model, template, cursor)
-
-    def bChLabel(self, fN=None, cursor=None):
-        return self.ctx.yeboyebo_bChLabel(fN, cursor)
+        super().__init__(context)
 
     def getFilters(self, model, name, template=None):
         return self.ctx.yeboyebo_getFilters(model, name, template)

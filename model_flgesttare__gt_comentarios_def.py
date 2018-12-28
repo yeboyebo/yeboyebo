@@ -7,10 +7,6 @@ import datetime
 
 class yeboyebo(gesttare):
 
-    def yeboyebo_initValidation(self, name, data=None):
-        response = True
-        return response
-
     def yeboyebo_calculaTotalHoras(self, date, user):
         # usr = qsatype.FLUtil.nameUser()
         q = qsatype.FLSqlQuery()
@@ -44,15 +40,6 @@ class yeboyebo(gesttare):
                 usr = data['otros']['iduser']
             labels[u"totalHoras"] = self.iface.calculaTotalHoras(fecha, usr)
         return labels
-
-    def yeboyebo_bChLabel(self, fN=None, cursor=None):
-        labels = {}
-        print("bchlabel")
-        return labels
-
-    def yeboyebo_getFilters(self, model, name, template=None):
-        filters = []
-        return filters
 
     def yeboyebo_getForeignFields(self, model, template=None):
         fields = []
@@ -102,10 +89,6 @@ class yeboyebo(gesttare):
     def yeboyebo_filtraTareas(self, model, oParam):
         print(oParam)
         return True
-
-    def yeboyebo_getDesc(self):
-        desc = None
-        return desc
 
     def yeboyebo_queryGrid_mistareas(self):
         usr = qsatype.FLUtil.nameUser()
@@ -325,25 +308,13 @@ class yeboyebo(gesttare):
         return url
 
     def __init__(self, context=None):
-        super(yeboyebo, self).__init__(context)
-
-    def initValidation(self, name, data=None):
-        return self.ctx.yeboyebo_initValidation(name, data=None)
+        super().__init__(context)
 
     def iniciaValoresLabel(self, model=None, template=None, cursor=None, data=None):
         return self.ctx.yeboyebo_iniciaValoresLabel(model, template, cursor, data)
 
-    def bChLabel(self, fN=None, cursor=None):
-        return self.ctx.yeboyebo_bChLabel(fN, cursor)
-
-    def getFilters(self, model, name, template=None):
-        return self.ctx.yeboyebo_getFilters(model, name, template)
-
     def getForeignFields(self, model, template=None):
         return self.ctx.yeboyebo_getForeignFields(model, template)
-
-    def getDesc(self):
-        return self.ctx.yeboyebo_getDesc()
 
     def getIdusuario(self):
         return self.ctx.yeboyebo_getIdusuario()

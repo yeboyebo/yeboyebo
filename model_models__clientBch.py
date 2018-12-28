@@ -28,7 +28,7 @@ class yeboyebo(interna):
         return dict
 
     def __init__(self, context=None):
-        super(yeboyebo, self).__init__(context)
+        super().__init__(context)
 
     def gt_comentarios_tareas(self, fN, dict, prefix, pk):
         return self.yeboyebo_gt_comentarios_tareas(fN, dict, prefix, pk)
@@ -38,14 +38,14 @@ class yeboyebo(interna):
 class head(yeboyebo):
 
     def __init__(self, context=None):
-        super(head, self).__init__(context)
+        super().__init__(context)
 
 
 # @class_declaration ifaceCtx #
 class ifaceCtx(head):
 
     def __init__(self, context=None):
-        super(ifaceCtx, self).__init__(context)
+        super().__init__(context)
 
 
 # @class_declaration FormInternalObj #
