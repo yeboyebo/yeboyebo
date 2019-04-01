@@ -52,7 +52,7 @@
                             "prefix": "otros",
                             "tipo": 55,
                             "className": "fullField",
-                            "auto_name": "Usuario",
+                            "label": "Usuario",
                             "rel": "gt_usuarios",
                             "aplic": "facturacion",
                             "key": "iduser",

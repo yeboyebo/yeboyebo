@@ -71,6 +71,10 @@
             {
                 "name": "model_flgesttare__gt_proyectos.py",
                 "path": "models/flgesttare/"
+            },
+            {
+                "name": "model_flgesttare__gt_tareas_def.py",
+                "path": "models/flgesttare/"
             }
         ],
         "patchJson": [

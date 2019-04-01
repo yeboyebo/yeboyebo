@@ -8,17 +8,6 @@ class yeboyebo(gesttare):
 
     def yeboyebo_getFilters(self, model, name, template=None):
         filters = []
-        if name == 'proyectosgrupo':
-            groups = qsatype.FLUtil.userGroups()
-            if 'ADMIN' not in groups:
-                filters.append({'criterio': 'codequipo__in', 'valor': groups})
-            visible = cacheController.getSessionVariable(ustr(u"visibePT_", qsatype.FLUtil.nameUser()))
-            if visible is None:
-                cacheController.setSessionVariable(ustr(u"visibePT_", qsatype.FLUtil.nameUser()), False)
-            if visible:
-                filters.append({'criterio': 'estado__in', 'valor': ["Abierto"]})
-            else:
-                filters.append({'criterio': 'estado__in', 'valor': ["Abierto", "Terminado"]})
         return filters
 
     def yeboyebo_getForeignFields(self, model, template=None):
@@ -57,8 +46,14 @@ class yeboyebo(gesttare):
             cacheController.setSessionVariable(ustr(u"visibePT_", qsatype.FLUtil.nameUser()), False)
         return True
 
+    def yeboyebo_check_permissions(self, model, prefix, pk, template, acl, accion):
+        return True
+
     def __init__(self, context=None):
         super().__init__(context)
+
+    def check_permissions(self, model, prefix, pk, template, acl, accion=None):
+        return self.ctx.yeboyebo_check_permissions(model, prefix, pk, template, acl, accion)
 
     def getFilters(self, model, name, template=None):
         return self.ctx.yeboyebo_getFilters(model, name, template)
