@@ -1,0 +1,9 @@
+{
+    "modifications": [
+        {
+            "type": "deleteNode",
+            "path": "/layout/groupBoxPadre/layout/articuosForm/fields/gb__/fields/codproyecto/disabled",
+            "value": null
+        }
+    ]
+}
