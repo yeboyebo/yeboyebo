@@ -36,6 +36,16 @@ class yeboyebo(gesttare):
         time = hours + ":" + minutes + ":" + seconds
         return time
 
+    def yeboyebo_afterCommit_gt_timetracking(self, cursor):
+        if cursor.modeAccess() == cursor.Edit:
+            return self.iface.totalizaCostesTarea(cursor)
+        return True
+
+    def yeboyebo_totalizaCostesTarea(self, cursor):
+        valor = qsatype.FLUtil.sqlSelect(u"gt_timetracking", u"SUM(coste)", ustr(u"idtarea = ", cursor.valueBuffer(u"idtarea")))
+        cursor.setValueBuffer("coste", valor)
+        return True
+
     def __init__(self, context=None):
         super().__init__(context)
 
@@ -44,4 +54,10 @@ class yeboyebo(gesttare):
 
     def getTimefromHours(self, hours):
         return self.ctx.yeboyebo_getTimefromHours(hours)
+
+    def afterCommit_gt_timetracking(self, cursor=None):
+        return self.ctx.yeboyebo_afterCommit_gt_timetracking(cursor)
+
+    def totalizaCostesTarea(self, cursor):
+        return self.ctx.yeboyebo_totalizaCostesTarea(cursor)
 

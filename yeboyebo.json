@@ -75,6 +75,10 @@
             {
                 "name": "model_flgesttare__gt_tareas_def.py",
                 "path": "models/flgesttare/"
+            },
+            {
+                "path": "models/flgesttare/",
+                "name": "model_flgesttare__gt_timetracking_def.py"
             }
         ],
         "patchJson": [
